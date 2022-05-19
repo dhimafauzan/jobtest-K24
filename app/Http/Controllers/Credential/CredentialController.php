@@ -68,35 +68,7 @@ class CredentialController extends Controller
         return view('page.credential.regis', compact('status'));
     }
 
-    public function storeRegis(PendaftaranRequest $request)
-    {
 
-        $data = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'telepon' => $request->telepon,
-            'nik' => $request->nik,
-            'tgl_lahir' => $request->tgl_lahir,
-            'password' => \Hash::make($request->password),
-
-        ]);
-        if($request->hasFile('foto')){
-            $loc = date('Y-F');
-            $path = $request->file('foto')->store('public/'.$loc);
-            User::where('id', $data->id)->update(
-                [
-                    'foto' => str_replace("public/","",$path)
-                ]
-            );
-        }
-
-        $data->attachRole($request->role);
-        if($data){
-            Session::flash('keterangan', 'Data berhasil di simpan');
-        }
-        return redirect(route('users.index'));
-    }
 
     /**
      * Store a newly created resource in storage.

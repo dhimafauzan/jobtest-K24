@@ -26,7 +26,7 @@ class CreateRequest extends FormRequest
         return [
             'name' => 'required',
             'password' => 'required|confirmed|min:8',
-            'email' => 'required|email|',
+            'email' => 'required|email|unique:users',
             'nik' => 'required|digits:16',
             'jenis_kelamin' => 'required',
             'tgl_lahir' => 'required',

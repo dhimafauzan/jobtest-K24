@@ -15,10 +15,11 @@ use App\Http\Controllers\Credential\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
-Route::get('pendaftaran',[ CredentialController::class, 'regis'])->name('pendaftaran.regis');
-Route::post('pendaftaran/store',[ CredentialController::class, 'storeRegis'])->name('pendaftaran.store');
+
+
+
+Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -31,3 +32,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('profile', ProfileController::class);
 
 });
+
+Route::get('pendaftaran',[ CredentialController::class, 'regis'])->name('pendaftaran.regis');
+Route::post('tambah-user',[ \App\Http\Controllers\Back\RegisController::class, 'storeRegis'])->name('store.regis');

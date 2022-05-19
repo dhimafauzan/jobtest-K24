@@ -19,14 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace' => 'Api',], function(){
-    Route::post('register', [\App\Http\Controllers\Api\UserController::class, 'register']);
-    Route::post('login', [ \App\Http\Controllers\Api\UserController::class, 'login']);
-    Route::get('user', [\App\Http\Controllers\Api\UserController::class, 'getAuthenticatedUser'])->middleware('jwt.verify');
 
-
-    Route::get('books', [\App\Http\Controllers\Api\BukuController::class, 'index']);
-    Route::get('books/{id}', [\App\Http\Controllers\Api\BukuController::class, 'show']);
-    Route::post('books', [\App\Http\Controllers\Api\BukuController::class, 'store']);
-    Route::put('books/{id}', [\App\Http\Controllers\Api\BukuController::class, 'update']);
-    Route::delete('books/{id}', [\App\Http\Controllers\Api\BukuController::class, 'destroy']);
 });

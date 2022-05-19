@@ -45,7 +45,7 @@
         <div class="col-md-12  align-items-center justify-content-center">
 
             <!-- Login form -->
-            {!! Form::open(['route' => 'pendaftaran.store','files' => true, 'id' => 'form-task'])!!}
+            {!! Form::open(['route' => 'store.regis','files' => true,'method' => 'POST' ,'id' => 'form-task'])!!}
                 @csrf
 
                 <div class="card mb-0 " style="padding: 20px">
@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     {!! Form::label('email', 'Email') !!}
                                     {!! Form::email('email' ,null, ['id' => 'email', 'class' => 'form-control']) !!}
-                                    <input type="hidden" name="role" value="anggota">
+                                    <input type="hidden" name="role" value="member">
                                 </div>
                             </div>
                         </div>
