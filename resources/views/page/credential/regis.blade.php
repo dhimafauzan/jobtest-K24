@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     {!! Form::label('email', 'Email') !!}
                                     {!! Form::email('email' ,null, ['id' => 'email', 'class' => 'form-control']) !!}
-                                    <input type="hidden" name="role" value="member">
+{{--                                    <input type="hidden" name="role" value="member">--}}
                                 </div>
                             </div>
                         </div>

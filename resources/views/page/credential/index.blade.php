@@ -24,6 +24,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Role</th>
                     <th width="140px">Action</th>
                     </thead>
                 </table>
@@ -43,6 +44,7 @@
                 { data: "name"},
                 { data: "email"},
                 { data: "telepon", defaulContent: "-"},
+                { data: "role", defaulContent: "-",orderable: false, searchable: false},
                 { data: "action",  className: "text-center"},
             ]
         });

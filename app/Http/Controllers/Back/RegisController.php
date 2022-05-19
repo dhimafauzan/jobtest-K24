@@ -48,7 +48,7 @@ class RegisController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'password' => \Hash::make($request->password),
 
-        ])->attachRole($request->role);
+        ])->attachRole('member');
         if($request->hasFile('foto')){
             $loc = date('Y-F');
             $path = $request->file('foto')->store('public/'.$loc);

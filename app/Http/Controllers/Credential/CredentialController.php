@@ -29,6 +29,17 @@ class CredentialController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn('role', function($a){
+                    $data = $a->roles;
+                    $tampung = '';
+                    $hitung = count($data);
+                    foreach ($data as $item)
+                    {
+                        $cek = $hitung > 1? ' | ': ' ';
+                        $tampung = $tampung.$item->display_name.$cek;
+                    }
+                    return $tampung;
+                })
                 ->addColumn('action', function ($a) {
                     return '<a href="' . route('users.edit', $a->id) . '" class="primary edit mr-1"><i class="fa fa-pencil mr-2"></i></a>
                             <a href="' . route('users.show', $a->id) . '" class="primary edit mr-1" ><i class="fa fa-eye mr-2"></i></a>
